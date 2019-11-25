@@ -7,3 +7,4 @@ dist
 .tox
 __pycache__
 .pytest_cache
+pip-delete-this-directory.txt
