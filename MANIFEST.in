@@ -1,1 +1,1 @@
-import README.md LICENSE requirements.txt
+import README.md LICENSE requirements.txt .pylintrc
