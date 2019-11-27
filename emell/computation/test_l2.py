@@ -1,4 +1,4 @@
-"""Contains tests for l2.py."""
+"""Tests for l2.py."""
 
 import unittest
 

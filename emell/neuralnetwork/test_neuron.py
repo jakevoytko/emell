@@ -5,7 +5,7 @@ from typing import Callable, List
 import numpy as np
 
 import emell.neuralnetwork.neuron as neuron
-from emell.computation.relu import relu
+from emell.computation import relu
 
 
 def make_random_function(returns: List[float]) -> Callable[[], float]:
