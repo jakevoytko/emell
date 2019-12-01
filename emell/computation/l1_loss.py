@@ -1,7 +1,7 @@
 """Contains the L1 loss function."""
 
 
-def l1(x: float, y: float) -> float:
+def l1_loss(x: float, y: float) -> float:
     """
     Compute the L1 loss function.
 

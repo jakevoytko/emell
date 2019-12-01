@@ -1,11 +1,13 @@
 """Pure math functions used by the ML routines."""
 
-from emell.computation.l1 import l1
-from emell.computation.l2 import l2
+from emell.computation.l1_loss import l1_loss
+from emell.computation.l2_loss import l2_loss
+from emell.computation.quadratic_cost import quadratic_cost
 from emell.computation.relu import relu
 
 __all__ = [
-    "l1",
-    "l2",
+    "l1_loss",
+    "l2_loss",
     "relu",
+    "quadratic_cost",
 ]
