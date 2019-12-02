@@ -1,39 +1,19 @@
 """Tests for neuron.py."""
 import unittest
-from typing import Callable, List
 
 import numpy as np
 
 import emell.neuralnetwork.neuron as neuron
-from emell.computation import relu
-
-
-def make_random_function(returns: List[float]) -> Callable[[], float]:
-    """
-    Return a function that returns the input values in sequence.
-
-    Used to simulate a random function for tests.
-
-    Parameters
-    ----------
-    returns : list
-        The values to return in sequence.
-    """
-    returns_copy = returns.copy()
-
-    def next_random() -> float:
-        nonlocal returns_copy
-
-        if len(returns_copy) == 0:
-            raise IndexError("Needed more random numbers than were provided")
-        value_to_return = returns_copy[0]
-        returns_copy = returns_copy[1:]
-        return value_to_return
-
-    return next_random
-
+from emell.testutil import make_random_function
 
 DELTA = 0.00001
+
+
+def relu(x: float) -> float:
+    """A testing implementation of relu."""
+    if x < 0:
+        return 0
+    return x
 
 
 class TestNeuron(unittest.TestCase):

@@ -12,6 +12,9 @@ class Neuron:
 
     Uses simple random initialization for the weights.
 
+    This is just used to model neural networks. Actual layers are implemented
+    in terms of `np.ndarray`s.
+
     https://www.bitlog.com/knowledge-base/machine-learning/neuron/
     """
 

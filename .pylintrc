@@ -140,7 +140,9 @@ disable=print-statement,
         exception-escape,
         comprehension-escape,
         # Checks I have disabled
-        bad-continuation # Fights with `black` reformatter
+        bad-continuation, # Fights with `black` reformatter
+        similarities, # Freaked out on contructor instantiation
+        no-self-use, # Freaks out on unit tests that use numpy assert methods
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -253,7 +255,9 @@ good-names=i,
            Run,
            _,
            l1,
-           l2
+           l2,
+           T,
+           f
 
 # Include a hint for the correct naming format with invalid-name.
 include-naming-hint=no

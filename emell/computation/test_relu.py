@@ -2,7 +2,9 @@
 
 import unittest
 
-from emell.computation.relu import relu
+import numpy as np
+
+from emell.computation import relu, relu_prime
 
 
 class TestRelu(unittest.TestCase):
@@ -10,10 +12,15 @@ class TestRelu(unittest.TestCase):
 
     def test_relu(self) -> None:
         """Tests some basic inputs and outputs of the relu function."""
-        self.assertEqual(0, relu(-1))
-        self.assertEqual(0, relu(0))
-        self.assertEqual(1, relu(1))
-        self.assertEqual(0.5, relu(0.5))
+        np.testing.assert_array_equal(
+            np.array([0, 0, 0.5, 1]), relu(np.array([-1, 0, 0.5, 1])),
+        )
+
+    def test_relu_prime(self) -> None:
+        """Tests some basic inputs and outputs of the relu derivative function."""
+        np.testing.assert_array_equal(
+            np.array([0, 1, 1, 1]), relu_prime(np.array([-1, 0, 0.5, 1])),
+        )
 
 
 if __name__ == "__main__":
