@@ -9,7 +9,12 @@ from emell.neuralnetwork.layer import Layer
 
 
 class Network:
-    """Represents a feedforward neural network."""
+    """
+    Represents a feedforward neural network.
+
+    More information can be found in my knowledge base:
+    https://www.bitlog.com/knowledge-base/machine-learning/feedforward-neural-network/
+    """
 
     def __init__(self, input_count: int):
         """
