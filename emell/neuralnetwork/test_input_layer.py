@@ -24,6 +24,33 @@ class InputLayerTest(unittest.TestCase):
         with self.assertRaises(NotImplementedError):
             layer.add_weights(2)
 
+    def test_update_weights(self) -> None:
+        """Verify that calling update_weights errors."""
+        layer = InputLayer(input_count=3)
+        with self.assertRaises(NotImplementedError):
+            layer.update_weights(np.array([1, 2, 3]))
+
+    def test_update_bias(self) -> None:
+        """
+        Verify that calling update bias does not error.
+
+        Also checks that it has no impact on output.
+
+        This is done during backpropagation to avoid special-casing the input
+        layer.
+        """
+        layer = InputLayer(input_count=3)
+        layer.update_bias(np.array([1, 1, 1]))
+        layer_input = np.array([1, 2, 3])
+        self.assertEqual(
+            Layer.Result(layer, layer_input, layer_input), layer.compute(layer_input)
+        )
+
+    def test_get_weights(self) -> None:
+        """Verify that getting the weights returns ones."""
+        layer = InputLayer(input_count=3)
+        np.testing.assert_array_equal(layer.get_weights(), np.ones([3]))
+
     def test_compute(self) -> None:
         """Verify that the input layer returns its inputs."""
         layer = InputLayer(input_count=3)

@@ -17,6 +17,14 @@ class TestConstant(unittest.TestCase):
         self.assertEqual("a", f())
         self.assertEqual("a", f())
 
+    def test_constant_multipleargs(self) -> None:
+        """
+        Tests that constant() can receive multiple args.
+
+        This is mostly a test of the linter.
+        """
+        self.assertEqual("a", constant("a")(1, 2, 3, "goodbye world"))
+
 
 if __name__ == "__main__":
     unittest.main()

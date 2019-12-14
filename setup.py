@@ -77,6 +77,11 @@ setup(
     extras_require=EXTRAS,
     include_package_data=True,
     license='MIT',
+    entry_points={
+        'console_scripts': [
+            'train_add = bin.neuralnetwork.train_add:main',
+        ],
+    },
     classifiers=[
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers

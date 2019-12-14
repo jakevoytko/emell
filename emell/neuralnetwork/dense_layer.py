@@ -43,7 +43,7 @@ class DenseLayer(Layer):
         super().__init__(neuron_count, activation, activation_prime)
         self.neuron_count = neuron_count
         self.random = random_function
-        self.bias = np.array([self.random() for _ in range(neuron_count)])
+        self.bias = np.zeros((neuron_count))
         self.weights: Optional[np.ndarray] = None
 
     def add_weights(self, weights_count: int) -> None:
@@ -58,10 +58,49 @@ class DenseLayer(Layer):
         """
         self.weights = np.array(
             [
-                [self.random() for _ in range(weights_count)]
+                [0.01 * self.random() for _ in range(weights_count)]
                 for x in range(self.neuron_count)
             ]
         )
+
+    def get_weights(self) -> np.ndarray:
+        """
+        Get the weights for the layer.
+
+        Returns
+        -------
+        The weight matrix for the layer. A 2D matrix that is MxN, where M is
+        the number of neurons and N is the number of inputs.
+
+        """
+        if self.weights is None:
+            raise RuntimeError("Cannot get weights for an unimplemented layer.")
+
+        return self.weights
+
+    def update_weights(self, delta: np.ndarray) -> None:
+        """
+        Update the weights.
+
+        Parameters
+        ----------
+        delta -> np.ndarray
+            The amount to add to the weights.
+
+        """
+        self.weights += delta
+
+    def update_bias(self, delta: np.ndarray) -> None:
+        """
+        Update the bias.
+
+        Parameters
+        ----------
+        delta -> np.ndarray
+            The amount to add to the bias.
+
+        """
+        self.bias += delta
 
     def compute(self, layer_input: np.ndarray) -> Layer.Result:
         """

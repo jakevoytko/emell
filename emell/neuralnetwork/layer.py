@@ -51,7 +51,48 @@ class Layer:
             The number of weights to add.
 
         """
-        raise NotImplementedError("The layer protocol is not usable")
+        raise NotImplementedError("The layer protocol is not usable.")
+
+    def get_weights(self) -> np.ndarray:
+        """
+        Get the weights for the layer.
+
+        Returns
+        -------
+        The weight matrix for the layer.
+
+        """
+        raise NotImplementedError("The layer protocol is not usable.")
+
+    def update_weights(self, delta: np.ndarray) -> None:
+        """
+        Update weights.
+
+        Intended to be used in backpropagation to modify the layer weights.
+        Adds `delta` to the weights.
+
+        Parameters
+        ----------
+        delta : np.ndarray
+            The amount to add to the weights.
+
+        """
+        raise NotImplementedError("The layer protocol is not usable.")
+
+    def update_bias(self, delta: np.ndarray) -> None:
+        """
+        Update bias.
+
+        Intended to be used in backpropagation to modify the layer bias. Adds
+        `delta` to the bias.
+
+        Parameters
+        ----------
+        delta : np.ndarray
+            The amount to add to the bias.
+
+        """
+        raise NotImplementedError("The layer protocol is not usable.")
 
     def compute(self, layer_input: np.ndarray) -> "Layer.Result":
         """

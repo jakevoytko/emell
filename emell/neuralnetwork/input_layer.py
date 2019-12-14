@@ -54,3 +54,10 @@ class InputLayer(Layer):
         return Layer.Result(
             layer=self, weighted_output=layer_input, output=layer_input,
         )
+
+    def update_bias(self, delta: np.ndarray) -> None:
+        """Update bias does nothing for an input layer."""
+
+    def get_weights(self) -> np.ndarray:
+        """Return a degenerate weight set."""
+        return np.ones([self.neuron_count])

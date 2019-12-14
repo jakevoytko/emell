@@ -15,4 +15,4 @@ def constant(x: T) -> Callable[..., T]:
         The value that will be returned in the function.
 
     """
-    return lambda: x
+    return lambda *args: x
