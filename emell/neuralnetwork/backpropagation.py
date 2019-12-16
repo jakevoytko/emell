@@ -8,7 +8,12 @@ from emell.neuralnetwork.network import Network
 
 
 class Backpropagation:
-    """Contains the backpropagation algorithm."""
+    """
+    A class that performs the backpropagation algorithm.
+
+    More information can be found in my knowledge base:
+    https://www.bitlog.com/knowledge-base/machine-learning/backpropagation/
+    """
 
     def __init__(
         self,
